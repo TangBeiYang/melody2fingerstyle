@@ -334,9 +334,9 @@ Basic Pitch 可作为音符转写候选工具。其官方说明支持复音，�
 
 实际 Git 仓库位于 `E:\linux_project\melody2fingerstyle\melody2fingerstyle`，外层目录不是 Git 仓库。当前配置的远程为 `https://github.com/TangBeiYang/melody2fingerstyle.git`。
 
-本次已从本地 main 新建并切换到 `docs/fingerstyle-mvp-plan`。这里只新增策划文档，未执行 commit、push 或合并；因此文档目前仍是工作区内容，需要 commit 后才进入分支历史。检查时本地 main 与缓存的 origin/main 指向相同提交，尚未联网核对远端是否有新增提交。
+2026-10-04，按用户要求将现有 `.gitignore`、策划案和样谱检查文档提交为 `cc89187`，从 `docs/fingerstyle-mvp-plan` 快进合并到本地 main，并成功推送到 GitHub 的 main 分支。原始谱面与转录草稿继续保留在被忽略的素材目录中。
 
-在 PowerShell 中提交并首次推送本次文档：
+以下命令保留为 2026-10-03 创建策划分支后的首次提交示例，属于历史操作说明；本次同步已完成，无需重复执行：
 
 ```powershell
 Set-Location 'E:\linux_project\melody2fingerstyle\melody2fingerstyle'
@@ -350,8 +350,8 @@ git commit -m "docs: add fingerstyle project plan"
 git push -u origin docs/fingerstyle-mvp-plan
 ```
 
-本次分支已经创建，不需要重复 `git switch -c`。`add` 选择提交内容，`commit` 保存本地快照，`push` 将提交发送到远程；`-u` 设置跟踪关系。上面的 push 显式指定新分支，不会合并到 main。[Git push 官方说明](https://git-scm.com/docs/git-push)
+示例中的策划分支已经创建，不需要重复 `git switch -c`。`add` 选择提交内容，`commit` 保存本地快照，`push` 将提交发送到远程；`-u` 设置跟踪关系。上面的示例 push 显式指定策划分支，它本身不会合并到 main；2026-10-04 的同步另行完成了快进合并与 main 推送。[Git push 官方说明](https://git-scm.com/docs/git-push)
 
-后续在这个分支继续修改时，依次执行 `git add -- <文件路径>`、`git commit -m "说明"`，再执行同一条显式指定分支的 push 命令即可。
+后续开发建议从最新 main 创建新的功能分支，保留独立提交，再按需要合并和推送。
 
 另一份本地仓库里的旧策划案不会因新建分支自动出现在这里。要迁入它，需要知道旧仓库路径，再选择复制文档或按提交迁移。另一个仓库 push 失败的具体原因还不能判断；新开分支可以隔离本次工作，但不会自动修复网络或身份验证问题。
